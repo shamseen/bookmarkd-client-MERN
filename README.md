@@ -6,6 +6,6 @@
 
 1) **Fork and clone** this repository into your `W09D05` directory
 
-2) **Do:** [Bookmarks](./bookmarks-2.md)
+2) **Do:** [Bookmarks Part 2](./bookmarks-2.md)
 
 3) **Submit:** via the [Homework Submissions Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdX0ZLUuiAgusabQ0aydqvVIsbYnLkoRZyH8Wm4uDXNEv-tEA/viewform?usp=sf_link). Follow the instructions found in the [How to Submit Homework](https://git.generalassemb.ly/SEIR-Erica/class-info/wiki/How-to-Submit-Homework) page on the wiki.
