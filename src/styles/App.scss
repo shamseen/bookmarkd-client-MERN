@@ -1,0 +1,131 @@
+// From react todo-list
+
+/* Sublime monokai theme */
+$background: #272822;
+$comments: #797979;
+$white: #d6d6d6;
+$yellow: #e6db74;
+$green: #a6e22e;
+$orange: #fd971f;
+$purple: #ae81ff;
+$pink: #f92672;
+$blue: #66d9ef;
+
+@mixin x-user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin x-transition {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+@mixin shadowboxing($value: $white) {
+  border-radius: 9px;
+  box-shadow: 0 0 30px rgba(211, 220, 248, 0.3);
+  border: 1px solid $value;
+  color: $value;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  background-color: $background;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Monaco", monospace;
+}
+
+.App {
+  width: 500px;
+  padding: 30px;
+  @include shadowboxing($purple);
+  color: $white;
+}
+
+h1,
+h2 {
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 18px;
+  margin-top: 2rem;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  color: $purple;
+}
+
+input {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 60px 12px 18px;
+  background: $comments;
+  @include shadowboxing;
+}
+
+li {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  font-size: 20px;
+  margin: 1rem 0;
+  font-family: "Segoe UI", sans-serif;
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
+  }
+
+  button {
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+    margin-left: 1em;
+    cursor: pointer;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 1.5rem;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.8px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+
+    &.remove {
+      @include shadowboxing($pink);
+    }
+
+    &.complete {
+      @include shadowboxing($green);
+    }
+
+    @include x-transition;
+    @include x-user-select;
+  }
+}
