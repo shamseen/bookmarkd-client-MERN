@@ -5,7 +5,8 @@ import App from "./App";
 const rootElement = document.getElementById("root");
 ReactDOM.render(
     <React.StrictMode>
-        <div style={{ color: "white" }}>wassup</div>
+        {/* <div style={{ color: "black" }}>wassup</div> */}
+        <App />
     </React.StrictMode >,
     rootElement
 );
