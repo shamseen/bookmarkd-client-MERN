@@ -1,12 +1,18 @@
 // import { useState } from "react";
 import React from "react";
+import Form from "./components/form";
 import "./styles/App.scss";
 
 export default function App() {
     console.log("app.js");
+
+    const handleSubmit = (bm) => {
+        // POST / PUT
+    }
     return (
         <div className="App">
-            {/* boilerplate */}
+            <h1>Book & Mark.</h1>
+            <Form handleSubmit={handleSubmit} />
         </div>
     );
 }
