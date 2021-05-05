@@ -14,9 +14,9 @@ export default ({ handleSubmit }) => {
     };
     return (
         <form onSubmit={handleForm}>
-            <label htmlFor="bm">New Bookmark</label>
+            <label htmlFor="bm">Add a bookmark:</label>
             <input type="text" placeholder="Title" value={bm.title} onChange={handleChange} id="bmTitle" />
-            <input type="text" placeholder="URLk" value={bm.url} onChange={handleChange} id="bmUrl" />
+            <input type="text" placeholder="URL" value={bm.url} onChange={handleChange} id="bmUrl" />
         </form>
     );
 };
