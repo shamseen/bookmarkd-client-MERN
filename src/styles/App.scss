@@ -52,23 +52,30 @@ body {
   @include shadowboxing($purple);
   color: $white;
 }
+.bookmarks {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-around;
+}
+.btn {
+  background-color: Crimson;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5em;
+  text-decoration: none;
+  margin: 0.5em;
 
-h1,
+  &:focus,
+  &:hover {
+    background-color: FireBrick;
+    color: White;
+  }
+}
+
 h2 {
   text-transform: capitalize;
-}
-
-h2 {
   font-size: 18px;
   margin-top: 2rem;
-}
-
-label {
-  font-size: 14px;
-  font-weight: 600;
-  padding-bottom: 0.5rem;
-  display: inline-block;
-  color: $purple;
 }
 
 input {
@@ -83,6 +90,14 @@ input {
   &::placeholder {
     color: $white;
   }
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  color: $purple;
 }
 
 li {
