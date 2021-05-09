@@ -12,7 +12,6 @@ export default function App() {
     useEffect(async () => {
         try {
             const json = await getBookmarks();
-            console.log(json);
             setBMs(json);
 
         } catch (err) {
@@ -27,7 +26,7 @@ export default function App() {
         <div className="App">
             <h1>Book & Mark.</h1>
             <Form handleSubmit={handleSubmit} />
-            <BookmarksList data={bookmarks} />
+            <BookmarksList bookmarks={bookmarks} />
         </div>
     );
 }
