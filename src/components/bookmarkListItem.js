@@ -1,27 +1,24 @@
 import React from "react";
 import "../styles/App.scss";
-// import { Button, IconButton, ButtonGroup, ListItem, ListItemText } from '@material-ui/core';
-// import DeleteIcon from '@material-ui/icons/Delete';
-// import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import LaunchIcon from '@material-ui/icons/Launch';
-import { ListItem, ListItemText } from '@material-ui/core';
 
-export default function Bookmark({ bookmark }) {
+export default function Bookmark({ bookmark, handleClick }) {
     return (
-        <ListItem>
-            {/* <ListItemText primary={bookmark.title} /> */}
-
+        <li>
+            <span>{bookmark.title}</span>
             <a href={bookmark.url}>
-                {bookmark.title}
-                <LaunchIcon fontSize="small" />
+                <LaunchIcon fontSize="large" />
             </a>
-            {/* <DeleteIcon color="secondary" />
-            <IconButton>
-                <EditIcon color="secondary" />
-            </IconButton>
-            <Button variant="outlined" color="secondary">
-                <DeleteIcon color="secondary" />
-            </Button> */}
-        </ListItem>
+
+            <button onClick={() => handleClick()} className="edit">
+                <EditIcon fontSize="small" />
+            </button>
+
+            <button onClick={() => handleClick()} className="delete">
+                <DeleteIcon fontSize="small" />
+            </button>
+        </li>
     )
 }
