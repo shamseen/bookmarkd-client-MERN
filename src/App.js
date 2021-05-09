@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Form from "./components/form";
 import BookmarksList from "./components/bookmarksList";
-import { getBookmarks } from './dataLayer.js';
+import { getBookmarks, deleteBookmark } from './dataLayer.js';
 import "./styles/App.scss";
+
+export const DataContext = React.createContext();
 
 export default function App() {
     const [bookmarks, setBMs] = useState([]);
@@ -20,13 +22,17 @@ export default function App() {
     }, [])
 
     const handleSubmit = (bm) => {
-        // POST / PUT
+        // CREATE
     }
     return (
-        <div className="App">
-            <h1>Book & Mark.</h1>
-            <Form handleSubmit={handleSubmit} />
-            <BookmarksList bookmarks={bookmarks} />
-        </div>
+        <DataContext.Provider value={{
+            deleteBookmark
+        }}>
+            <div className="App">
+                <h1>Book & Mark.</h1>
+                <Form handleSubmit={handleSubmit} />
+                <BookmarksList bookmarks={bookmarks} />
+            </div>
+        </DataContext.Provider>
     );
 }

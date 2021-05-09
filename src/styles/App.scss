@@ -92,7 +92,8 @@ li {
   font-family: "Segoe UI", sans-serif;
 
   a {
-    @include shadowboxing();
+    @include shadowboxing($green);
+    line-height: 5px;
   }
   span {
     overflow: hidden;
