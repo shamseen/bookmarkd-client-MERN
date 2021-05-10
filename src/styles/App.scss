@@ -53,6 +53,44 @@ body {
   color: $white;
 }
 
+button {
+  text-transform: uppercase;
+  display: block;
+  position: relative;
+  margin-left: 1em;
+  cursor: pointer;
+  height: 35px;
+  line-height: 10px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.8px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+
+  &.delete {
+    @include shadowboxing($pink);
+  }
+
+  &.edit {
+    @include shadowboxing($yellow);
+  }
+
+  &.submit {
+    @include shadowboxing($blue);
+    line-height: 20px;
+    padding: 5px;
+  }
+
+  @include x-transition;
+  @include x-user-select;
+}
+
 h2 {
   text-transform: capitalize;
   font-size: 18px;
@@ -100,37 +138,5 @@ li {
     text-overflow: ellipsis;
     white-space: nowrap;
     flex-grow: 1;
-  }
-
-  button {
-    text-transform: uppercase;
-    display: block;
-    position: relative;
-    margin-left: 1em;
-    cursor: pointer;
-    height: 35px;
-    line-height: 10px;
-    padding: 0;
-    font-size: 13px;
-    font-weight: 600;
-    font-family: "Roboto", sans-serif;
-    letter-spacing: 0.8px;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    outline: none;
-    border: none;
-    border-radius: 30px;
-
-    &.delete {
-      @include shadowboxing($pink);
-    }
-
-    &.edit {
-      @include shadowboxing($yellow);
-    }
-
-    @include x-transition;
-    @include x-user-select;
   }
 }

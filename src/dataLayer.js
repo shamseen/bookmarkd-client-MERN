@@ -1,6 +1,31 @@
 // const url = 'https://bookmarkd-api-sham.herokuapp.com/bookmarks';
 const url = 'http://localhost:8000/bookmarks';
 
+export const createBookmark = async (title, url) => {
+    const body = {
+        title,
+        url
+    }
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        })
+
+        const json = await response.json();
+
+        return json;
+
+    } catch (err) {
+
+        console.log(err);
+    }
+}
+
 export const deleteBookmark = async (prop, id) => {
     const u = `${url}/${id}`;
     console.log(u)
