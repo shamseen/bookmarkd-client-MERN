@@ -54,3 +54,30 @@ export const getBookmarks = async () => {
         console.log(err);
     }
 }
+
+export const updateBookmark = async (id, title, url) => {
+    const u = `${url}/edit/id/${id}`;
+    const body = {
+        title,
+        url
+    }
+
+    try {
+        const response = await fetch(u, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        })
+
+        const json = await response.json();
+
+        return json;
+
+    } catch (err) {
+
+        console.log(err);
+    }
+
+}

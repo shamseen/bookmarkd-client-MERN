@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Form from "./components/form";
 import BookmarkListItem from "./components/bookmarkListItem";
-import { createBookmark, deleteBookmark, getBookmarks } from './dataLayer.js';
+import { createBookmark, deleteBookmark, getBookmarks, updateBookmark } from './dataLayer.js';
 import "./styles/App.scss";
 
 export const DataContext = React.createContext();
@@ -19,24 +19,36 @@ export default function App() {
         }
     }, [])
 
-    const updateBookmark = (title, url) => {
+    const saveBookmark = async (id, title, url) => {
         console.log('updated: ');
         console.log(title, url);
+        try {
+            const json = await updateBookmark(id, title, url);
+            console.log(json);
+
+        } catch (err) {
+            console.log(err);
+        } finally {
+            const newBms = await getBookmarks();
+            setBMs(newBms);
+        }
     }
 
     return (
         <DataContext.Provider value={{
             createBookmark,
             deleteBookmark,
-            updateBookmark
+            saveBookmark
         }}>
-            <div className="App">
-                <h1>Book & Mark.</h1>
-                {/* Add new */}
-                <label htmlFor="bm">Add a bookmark:</label>
-                <Form updateBookmarks={createBookmark} />
+            <div id="App">
+                {/* Add new bookmark */}
+                <div id="add-new" className="card">
+                    <h1>Book & Mark.</h1>
+                    <label htmlFor="bm">Add a bookmark:</label>
+                    <Form updateBookmarks={createBookmark} />
+                </div>
                 {/* List */}
-                <div className="bmlist">
+                <div id="bmlist" className="card">
                     <h2>Your Bookmarks:</h2>
                     <ul>
                         {bookmarks.map((bm, i) => {

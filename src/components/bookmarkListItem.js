@@ -8,7 +8,7 @@ import LaunchIcon from '@material-ui/icons/Launch';
 
 export default function Bookmark({ bm }) {
 
-    const { updateBookmark, deleteBookmark } = useContext(DataContext);
+    const { saveBookmark, deleteBookmark } = useContext(DataContext);
 
     const [isEditing, setEdit] = useState(false);
 
@@ -18,14 +18,14 @@ export default function Bookmark({ bm }) {
     }
     const saveEdit = (title, url) => {
         setEdit(false);
-        updateBookmark(title, url);
+        saveBookmark(bm._id, title, url);
     }
 
     return (
         <li>
             <div className="bm">
                 <span>{bm.title}</span>
-                <a href={bm.url}>
+                <a href={bm.url} target="_blank">
                     <LaunchIcon fontSize="large" />
                 </a>
                 <button onClick={editBM} className="edit">
