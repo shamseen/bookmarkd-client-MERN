@@ -1,28 +1,42 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { DataContext } from '../App';
+import Form from "./form";
 import "../styles/App.scss";
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import LaunchIcon from '@material-ui/icons/Launch';
 
-export default function Bookmark({ bookmark }) {
+export default function Bookmark({ bm }) {
 
-    const { deleteBookmark } = useContext(DataContext);
+    const { updateBookmark, deleteBookmark } = useContext(DataContext);
+
+    const [isEditing, setEdit] = useState(false);
+
+    const editBM = () => {
+        setEdit(!isEditing);
+        console.log('clicked');
+    }
+    const saveEdit = (title, url) => {
+        setEdit(false);
+        updateBookmark(title, url);
+    }
 
     return (
         <li>
-            <span>{bookmark.title}</span>
-            <a href={bookmark.url}>
-                <LaunchIcon fontSize="large" />
-            </a>
+            <div className="bm">
+                <span>{bm.title}</span>
+                <a href={bm.url}>
+                    <LaunchIcon fontSize="large" />
+                </a>
+                <button onClick={editBM} className="edit">
+                    <EditIcon fontSize="small" />
+                </button>
+                <button onClick={() => deleteBookmark('_id', bm._id)} className="delete">
+                    <DeleteIcon fontSize="small" />
+                </button>
+            </div>
 
-            <button onClick={() => handleClick()} className="edit">
-                <EditIcon fontSize="small" />
-            </button>
-
-            <button onClick={deleteBookmark(bookmark._id)} className="delete">
-                <DeleteIcon fontSize="small" />
-            </button>
+            {isEditing ? <Form updateBookmarks={saveEdit} bookmark={bm} /> : null}
         </li>
     )
 }

@@ -1,11 +1,10 @@
-import React, { useState, useContext } from "react";
-import { DataContext } from '../App';
+import React, { useState } from "react";
 import "../styles/App.scss";
 
-export default () => {
-    const { createBookmark } = useContext(DataContext);
-    const [title, setTitle] = useState('');
-    const [url, setUrl] = useState('');
+export default ({ updateBookmarks, bookmark = { title: '', url: '' } }) => {
+
+    const [title, setTitle] = useState(bookmark.title);
+    const [url, setUrl] = useState(bookmark.url);
 
     // dynamically changing state with user input
     const handleTitleChange = (e) => {
@@ -20,17 +19,18 @@ export default () => {
     const handleSubmit = () => {
         if (title == '' || url == '') return;
 
-        createBookmark(title, url);
+        updateBookmarks(title, url);
         setTitle('');
         setUrl('');
     };
 
     return (
         <div>
-            <label htmlFor="bm">Add a bookmark:</label>
             <input type="text" placeholder="Title" value={title} onChange={handleTitleChange} id="bmTitle" />
-            <input type="text" placeholder="URL" value={url} onChange={handleUrlChange} id="bmUrl" />
-            <button className="submit" onClick={handleSubmit}>Submit</button>
+            <input type="url" placeholder="URL" value={url} onChange={handleUrlChange} id="bmUrl" />
+            <button className="submit" onClick={handleSubmit}>
+                {bookmark.title === '' ? 'Submit' : 'Save'}
+            </button>
         </div>
 
     );

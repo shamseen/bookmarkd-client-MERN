@@ -121,13 +121,25 @@ label {
 
 li {
   display: flex;
-  width: 100%;
+  flex-wrap: wrap;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
   font-size: 20px;
   margin: 1rem 0;
   font-family: "Segoe UI", sans-serif;
+
+  &:hover {
+    // border-top: 1px solid $white;
+    // border-bottom: 1px solid $white;
+    padding-left: 5px;
+    border-left: 1px solid $white;
+  }
+}
+
+.bm {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
 
   a {
     @include shadowboxing($green);
