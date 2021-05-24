@@ -41,10 +41,12 @@ export default function App() {
         }}>
             <div id="App">
                 {/* Add new bookmark */}
-                <div id="add-new" className="card">
-                    <h1>Book & Mark.</h1>
-                    <label htmlFor="bm">Add a bookmark:</label>
-                    <Form updateBookmarks={createBookmark} />
+                <div id="card-1" className="card">
+                    <div id="add-new">
+                        <h1>Book & Mark.</h1>
+                        <label htmlFor="bm">Add a bookmark:</label>
+                        <Form updateBookmarks={createBookmark} />
+                    </div>
                     <InfoPanel />
                 </div>
                 {/* List */}

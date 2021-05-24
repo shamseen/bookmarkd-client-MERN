@@ -1,11 +1,7 @@
 import React, { useState, useContext } from "react";
 import { DataContext } from '../App';
-// import DeleteIcon from '@material-ui/icons/Delete';
-// import EditIcon from '@material-ui/icons/Edit';
-// import LaunchIcon from '@material-ui/icons/Launch';
-
-import { Delete, Edit, Launch } from '@material-ui/icons';
 import Form from "./form";
+import { Delete, Edit, Launch } from '@material-ui/icons';
 import "../styles/bookmarkListItem.scss";
 
 
@@ -31,15 +27,17 @@ export default function Bookmark({ bm }) {
         <li>
             <div className="bm">
                 <span>{bm.title}</span>
-                <a href={bm.url} target="_blank">
-                    <Launch fontSize="large" />
-                </a>
-                <button onClick={editBM} className="edit">
-                    <Edit fontSize="small" />
-                </button>
-                <button onClick={deleteBM} className="delete">
-                    <Delete fontSize="small" />
-                </button>
+                <div id="btns">
+                    <a href={bm.url} target="_blank">
+                        <Launch fontSize="large" />
+                    </a>
+                    <button onClick={editBM} className="edit">
+                        <Edit fontSize="small" />
+                    </button>
+                    <button onClick={deleteBM} className="delete">
+                        <Delete fontSize="small" />
+                    </button>
+                </div>
             </div>
 
             {isEditing ? <Form updateBookmarks={saveEdit} bookmark={bm} /> : null}

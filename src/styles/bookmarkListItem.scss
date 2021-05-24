@@ -17,7 +17,7 @@ li {
 
 .bm {
   display: flex;
-  flex-wrap: nowrap;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
 
@@ -25,10 +25,16 @@ li {
     @include shadowboxing($blue);
     line-height: 5px;
   }
+
+  #btns {
+    width: fit-content;
+    * {
+      display: inline-block;
+    }
+  }
   span {
+    min-width: 30%;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    flex-grow: 1;
   }
 }

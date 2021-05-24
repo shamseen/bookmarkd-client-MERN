@@ -8,7 +8,6 @@ export default function InfoPanel() {
     <div id="infoPanel">
       <hr />
       <div id="links">
-
         <Link href="#" onClick={(e) => e.preventDefault()}>
           <GitHubIcon fontSize="large" />
           <br />
