@@ -11,6 +11,23 @@ $purple: #ae81ff;
 $pink: #f92672;
 $blue: #66d9ef;
 
+@mixin custom-scroll-bar() {
+  &::-webkit-scrollbar {
+    border-radius: 10px;
+    height: 10px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $purple;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+}
+
 @mixin x-user-select {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -130,8 +147,9 @@ label {
 }
 
 #bmlist {
-  overflow-y: scroll;
   width: 50vw;
+  @include custom-scroll-bar();
+  overflow-y: scroll;
 }
 
 li {
@@ -141,6 +159,7 @@ li {
   font-size: 20px;
   margin: 1rem 0;
   font-family: "Segoe UI", sans-serif;
+  width: 90%;
 
   &:hover {
     padding-left: 5px;
