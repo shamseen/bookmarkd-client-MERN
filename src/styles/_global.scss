@@ -1,0 +1,69 @@
+/* Sublime monokai theme */
+$background: #272822;
+$comments: #797979;
+$white: #d6d6d6;
+$yellow: #e6db74;
+$green: #a6e22e;
+$orange: #fd971f;
+$purple: #ae81ff;
+$pink: #f92672;
+$blue: #66d9ef;
+
+@mixin shadowboxing($value: $white) {
+  border-radius: 9px;
+  box-shadow: 0 0 30px rgba(211, 220, 248, 0.3);
+  border: 1px solid $value;
+  color: $value;
+}
+
+@mixin x-transition {
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+@mixin x-user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+button {
+  text-transform: uppercase;
+  display: block;
+  position: relative;
+  margin-left: 1em;
+  cursor: pointer;
+  height: 35px;
+  line-height: 10px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.8px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+
+  &.delete {
+    @include shadowboxing($pink);
+  }
+
+  &.edit {
+    @include shadowboxing($yellow);
+  }
+
+  &.submit {
+    @include shadowboxing($green);
+    line-height: 20px;
+    margin-left: 0px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  @include x-transition;
+  @include x-user-select;
+}

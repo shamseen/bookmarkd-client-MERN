@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { DataContext } from '../App';
-import "../styles/App.scss";
+import "../styles/form.scss";
 
 export default ({ updateBookmarks, bookmark = { title: '', url: '' } }) => {
     const { refreshBookmarks } = useContext(DataContext);

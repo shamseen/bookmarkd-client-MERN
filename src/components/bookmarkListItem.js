@@ -1,15 +1,16 @@
 import React, { useState, useContext } from "react";
 import { DataContext } from '../App';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import EditIcon from '@material-ui/icons/Edit';
+// import LaunchIcon from '@material-ui/icons/Launch';
+
+import { Delete, Edit, Launch } from '@material-ui/icons';
 import Form from "./form";
-import "../styles/App.scss";
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import LaunchIcon from '@material-ui/icons/Launch';
+import "../styles/bookmarkListItem.scss";
+
 
 export default function Bookmark({ bm }) {
-
     const { saveBookmark, deleteBookmark, refreshBookmarks } = useContext(DataContext);
-
     const [isEditing, setEdit] = useState(false);
 
     const deleteBM = () => {
@@ -31,13 +32,13 @@ export default function Bookmark({ bm }) {
             <div className="bm">
                 <span>{bm.title}</span>
                 <a href={bm.url} target="_blank">
-                    <LaunchIcon fontSize="large" />
+                    <Launch fontSize="large" />
                 </a>
                 <button onClick={editBM} className="edit">
-                    <EditIcon fontSize="small" />
+                    <Edit fontSize="small" />
                 </button>
                 <button onClick={deleteBM} className="delete">
-                    <DeleteIcon fontSize="small" />
+                    <Delete fontSize="small" />
                 </button>
             </div>
 

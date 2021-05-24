@@ -8,10 +8,6 @@ export default function InfoPanel() {
     <div id="infoPanel">
       <hr />
       <div id="links">
-        {/* <a href='https://github.com/shamseen/bookmarkd-client-MERN' target="_blank">
-          <GitHubIcon fontSize="large" />
-          <span>Src</span>
-        </a> */}
 
         <Link href="#" onClick={(e) => e.preventDefault()}>
           <GitHubIcon fontSize="large" />
