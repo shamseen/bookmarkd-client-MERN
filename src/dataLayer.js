@@ -8,13 +8,15 @@ export const createBookmark = async (title, bmUrl) => {
     }
 
     try {
-        const response = await fetch(bmUrl, {
+        const response = await fetch(baseUrl + `/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(body)
         })
+
+        console.log(JSON.stringify(body, null, 4));
 
         const json = await response.json();
 
