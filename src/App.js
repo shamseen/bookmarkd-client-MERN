@@ -20,8 +20,6 @@ export default function App() {
     }, [])
 
     const saveBookmark = async (id, title, url) => {
-        console.log('updated: ');
-        console.log(title, url);
         try {
             const json = await updateBookmark(id, title, url);
             console.log(json);

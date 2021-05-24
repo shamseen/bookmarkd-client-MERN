@@ -13,12 +13,11 @@ export default function Bookmark({ bm }) {
     const [isEditing, setEdit] = useState(false);
 
     const editBM = () => {
-        setEdit(!isEditing);
-        console.log('clicked');
+        setEdit(!isEditing); // toggling form visibility
     }
     const saveEdit = (title, url) => {
-        setEdit(false);
-        saveBookmark(bm._id, title, url);
+        setEdit(false);                     // hiding form
+        saveBookmark(bm._id, title, url);   // updating db
     }
 
     return (

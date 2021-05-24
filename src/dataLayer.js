@@ -1,14 +1,14 @@
 // const url = 'https://bookmarkd-api-sham.herokuapp.com/bookmarks';
-const url = 'http://localhost:8000/bookmarks';
+const baseUrl = 'http://localhost:8000/bookmarks';
 
-export const createBookmark = async (title, url) => {
+export const createBookmark = async (title, bmUrl) => {
     const body = {
         title,
-        url
+        url: bmUrl
     }
 
     try {
-        const response = await fetch(url, {
+        const response = await fetch(bmUrl, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -27,10 +27,9 @@ export const createBookmark = async (title, url) => {
 }
 
 export const deleteBookmark = async (prop, id) => {
-    const u = `${url}/${id}`;
-    console.log(u)
+
     try {
-        const response = await fetch(`${url}/${prop}/${id}`, {
+        const response = await fetch(`${baseUrl}/${prop}/${id}`, {
             method: "DELETE"
         });
 
@@ -45,7 +44,7 @@ export const deleteBookmark = async (prop, id) => {
 
 export const getBookmarks = async () => {
     try {
-        const response = await fetch(url);
+        const response = await fetch(baseUrl);
         const json = await response.json();
         return json;
 
@@ -55,15 +54,17 @@ export const getBookmarks = async () => {
     }
 }
 
-export const updateBookmark = async (id, title, url) => {
-    const u = `${url}/edit/id/${id}`;
+export const updateBookmark = async (id, title, bmUrl) => {
+    const fetchUrl = `${baseUrl}/edit/_id/${id}`;
     const body = {
         title,
-        url
+        url: bmUrl
     }
+    console.log('fetch: ', fetchUrl);
+    console.log('body: ', body)
 
     try {
-        const response = await fetch(u, {
+        const response = await fetch(fetchUrl, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
