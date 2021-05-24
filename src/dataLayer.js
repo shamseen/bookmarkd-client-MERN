@@ -1,5 +1,4 @@
-// const url = 'https://bookmarkd-api-sham.herokuapp.com/bookmarks';
-const baseUrl = 'http://localhost:8000/bookmarks';
+const baseUrl = 'https://bookmarkd-api-sham.herokuapp.com/bookmarks';
 
 export const createBookmark = async (title, bmUrl) => {
     const body = {
