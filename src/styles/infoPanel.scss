@@ -1,0 +1,15 @@
+$blue: #66d9ef;
+#infoPanel {
+  margin: 1em;
+  margin-top: 3em;
+  a {
+    color: $blue;
+  }
+
+  #links {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin-top: 2em;
+  }
+}

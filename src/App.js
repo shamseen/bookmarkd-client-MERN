@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Form from "./components/form";
-import BookmarkListItem from "./components/bookmarkListItem";
+import { BookmarkListItem, Form, InfoPanel } from "./components";
 import { createBookmark, deleteBookmark, getBookmarks, updateBookmark } from './dataLayer.js';
 import "./styles/App.scss";
 
@@ -46,6 +45,7 @@ export default function App() {
                     <h1>Book & Mark.</h1>
                     <label htmlFor="bm">Add a bookmark:</label>
                     <Form updateBookmarks={createBookmark} />
+                    <InfoPanel />
                 </div>
                 {/* List */}
                 <div id="bmlist" className="card">
