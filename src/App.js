@@ -9,7 +9,7 @@ export const DataContext = React.createContext();
 export default function App() {
     const [bookmarks, setBMs] = useState([]);
 
-    useEffect(async () => {
+    const refreshBookmarks = async () => {
         try {
             const json = await getBookmarks();
             setBMs(json);
@@ -17,25 +17,27 @@ export default function App() {
         } catch (err) {
             console.log(err);
         }
-    }, [])
+    }
 
     const saveBookmark = async (id, title, url) => {
         try {
             const json = await updateBookmark(id, title, url);
-            console.log(json);
-
         } catch (err) {
             console.log(err);
         } finally {
-            const newBms = await getBookmarks();
-            setBMs(newBms);
+            await refreshBookmarks();
         }
     }
+
+    useEffect(async () => {
+        await refreshBookmarks();
+    }, [])
 
     return (
         <DataContext.Provider value={{
             createBookmark,
             deleteBookmark,
+            refreshBookmarks,
             saveBookmark
         }}>
             <div id="App">

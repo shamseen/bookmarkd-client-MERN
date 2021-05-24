@@ -89,9 +89,11 @@ button {
   }
 
   &.submit {
-    @include shadowboxing($blue);
+    @include shadowboxing($green);
     line-height: 20px;
+    margin-left: 0px;
     padding: 5px;
+    width: 100%;
   }
 
   @include x-transition;
@@ -110,6 +112,7 @@ input {
   font-weight: 600;
   padding: 12px 60px 12px 18px;
   background: $comments;
+  margin-top: 1em;
   margin-bottom: 1em;
   @include shadowboxing;
 
@@ -123,7 +126,7 @@ label {
   font-weight: 600;
   padding-bottom: 0.5rem;
   display: inline-block;
-  color: $purple;
+  color: $green;
 }
 
 #bmlist {
@@ -152,7 +155,7 @@ li {
   width: 100%;
 
   a {
-    @include shadowboxing($green);
+    @include shadowboxing($blue);
     line-height: 5px;
   }
   span {

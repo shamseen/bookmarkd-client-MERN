@@ -8,9 +8,14 @@ import LaunchIcon from '@material-ui/icons/Launch';
 
 export default function Bookmark({ bm }) {
 
-    const { saveBookmark, deleteBookmark } = useContext(DataContext);
+    const { saveBookmark, deleteBookmark, refreshBookmarks } = useContext(DataContext);
 
     const [isEditing, setEdit] = useState(false);
+
+    const deleteBM = () => {
+        deleteBookmark('_id', bm._id);
+        refreshBookmarks();
+    }
 
     const editBM = () => {
         setEdit(!isEditing); // toggling form visibility
@@ -18,6 +23,7 @@ export default function Bookmark({ bm }) {
     const saveEdit = (title, url) => {
         setEdit(false);                     // hiding form
         saveBookmark(bm._id, title, url);   // updating db
+        refreshBookmarks();
     }
 
     return (
@@ -30,7 +36,7 @@ export default function Bookmark({ bm }) {
                 <button onClick={editBM} className="edit">
                     <EditIcon fontSize="small" />
                 </button>
-                <button onClick={() => deleteBookmark('_id', bm._id)} className="delete">
+                <button onClick={deleteBM} className="delete">
                     <DeleteIcon fontSize="small" />
                 </button>
             </div>

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { DataContext } from '../App';
 import "../styles/App.scss";
 
 export default ({ updateBookmarks, bookmark = { title: '', url: '' } }) => {
-
+    const { refreshBookmarks } = useContext(DataContext);
     const [title, setTitle] = useState(bookmark.title);
     const [url, setUrl] = useState(bookmark.url);
 
@@ -18,8 +19,8 @@ export default ({ updateBookmarks, bookmark = { title: '', url: '' } }) => {
     // updating data after submit
     const handleSubmit = () => {
         if (title == '' || url == '') return;
-
         updateBookmarks(title, url);
+        refreshBookmarks();
         setTitle('');
         setUrl('');
     };
