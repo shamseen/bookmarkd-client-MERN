@@ -8,17 +8,17 @@ export default function InfoPanel() {
     <div id="infoPanel">
       <hr />
       <div id="links">
-        <Link href="https://github.com/shamseen/bookmarkd-client-MERN" target="_blank" onClick={(e) => e.preventDefault()}>
+        <Link href="https://github.com/shamseen/bookmarkd-client-MERN" target="_blank">
           <GitHubIcon fontSize="large" />
           <br />
           Src
         </Link>
-        <Link href="https://github.com/shamseen/bookmarkd-api-MERN" target="_blank" onClick={(e) => e.preventDefault()}>
+        <Link href="https://github.com/shamseen/bookmarkd-api-MERN" target="_blank">
           <GitHubIcon fontSize="large" />
           <br />
           API
         </Link>
-        <Link href="https://shamseen.netlify.app/" target="_blank" onClick={(e) => e.preventDefault()}>
+        <Link href="https://shamseen.netlify.app/" target="_blank">
           <PersonPinIcon fontSize="large" />
           <br />
           Moi
